@@ -1,25 +1,23 @@
-name:pyhton CI 
+name: Python CI
 
 on:
   push:
-      branches: [main]
-        
+    branches: [main]
+  pull_request:
+    branches: [main]
 
-        pull_ request:
-         branches:[main]
+jobs:
+  test:
+    runs-on: ubuntu-latest
 
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-           jobs:
-             test:
-                run-on: Ubuntu -latest
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
 
-
-                   steps:
-                          -name: checkout repository 
-
-                            uses: actions/setup-pyhton =@v5
-                            with: 
-                              pyhton-version: "3.14.4"
-                            -name: Run Pyhton Application
-
-                             run: python app.py 
+      - name: Run Python application
+        run: python app.py
