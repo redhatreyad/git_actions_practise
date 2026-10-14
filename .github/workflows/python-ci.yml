@@ -1,0 +1,25 @@
+name:pyhton CI 
+
+on:
+  push:
+      branches: [main]
+        
+
+        pull_ request:
+         branches:[main]
+
+
+           jobs:
+             test:
+                run-on: Ubuntu -latest
+
+
+                   steps:
+                          -name: checkout repository 
+
+                            uses: actions/setup-pyhton =@v5
+                            with: 
+                              pyhton-version: "3.14.4"
+                            -name: Run Pyhton Application
+
+                             run: python app.py 
